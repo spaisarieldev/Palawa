@@ -1,0 +1,45 @@
+<mat-toolbar class="site-header" [class.is-scrolled]="ui.scrolled()">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="SUP Sup-Surf y Surf School — Inicio">
+      <span class="brand-emblem" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M16 4C10.5 11.5 9.5 19.5 12 28h8c2.5-8.5 1.5-16.5-4-24Z" />
+          <path d="M5 24c3.5-2.4 7.2-2.4 11 0s7.5 2.4 11 0" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">SUP &amp; Surf School</span>
+        <span class="brand-tag">La Barra · Punta del Este</span>
+      </span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      @for (item of nav; track item.id) {
+        <a
+          class="nav-link"
+          [class.is-active]="ui.activeSection() === item.id"
+          [href]="'#' + item.id"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="header-actions">
+      <button mat-stroked-button class="header-cta" type="button" (click)="reserve()">
+        <span>Reservar salida</span>
+        <span class="diamond" aria-hidden="true"></span>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        class="burger"
+        [attr.aria-expanded]="ui.menuOpen()"
+        [attr.aria-label]="ui.menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+        (click)="ui.toggleMenu()"
+      >
+        <mat-icon>{{ ui.menuOpen() ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

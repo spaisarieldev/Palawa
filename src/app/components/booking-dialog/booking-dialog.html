@@ -1,0 +1,133 @@
+<div class="booking">
+  <div class="booking-top">
+    <div>
+      <p class="eyebrow">{{ sent() ? 'Consulta lista · WhatsApp' : stepLabels[step()] }}</p>
+      <h2 class="serif-display booking-title" id="booking-title">Armá tu consulta para La Barra</h2>
+    </div>
+    <button mat-icon-button type="button" aria-label="Cerrar ventana" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  @if (!sent()) {
+    <div class="modal-progress" aria-hidden="true">
+      @for (marker of [1, 2, 3]; track marker) {
+        <span [class.is-on]="step() + 1 >= marker"></span>
+      }
+    </div>
+
+    <mat-stepper [linear]="false" animationDuration="200ms" (selectionChange)="step.set($event.selectedIndex)">
+      <mat-step label="Modalidad">
+        <p class="booking-lead">¿Qué experiencia te gustaría coordinar en el agua?</p>
+        <mat-button-toggle-group
+          class="opt-grid"
+          [value]="service()"
+          hideSingleSelectionIndicator
+          (change)="choose('service', $event.value)"
+        >
+          @for (option of services; track option.value) {
+            <mat-button-toggle [value]="option.value">
+              <span>{{ option.label }}</span>
+              <span class="diamond" aria-hidden="true"></span>
+            </mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+        <div class="modal-actions end">
+          <button mat-flat-button class="btn btn-primary" type="button" matStepperNext>
+            <span>Siguiente paso</span>
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </mat-step>
+
+      <mat-step label="Participantes">
+        <p class="field-label">¿Para cuántas personas o qué nivel?</p>
+        <mat-button-toggle-group
+          class="opt-grid cols-2"
+          [value]="level()"
+          hideSingleSelectionIndicator
+          (change)="choose('level', $event.value)"
+        >
+          @for (option of levels; track option.value) {
+            <mat-button-toggle [value]="option.value">{{ option.label }}</mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+
+        <p class="field-label">¿Para cuándo te gustaría coordinar?</p>
+        <mat-button-toggle-group
+          class="opt-grid cols-2"
+          [value]="when()"
+          hideSingleSelectionIndicator
+          (change)="choose('when', $event.value)"
+        >
+          @for (option of whens; track option.value) {
+            <mat-button-toggle [value]="option.value">{{ option.label }}</mat-button-toggle>
+          }
+        </mat-button-toggle-group>
+
+        <mat-form-field appearance="outline" class="booking-field" subscriptSizing="dynamic">
+          <mat-label>Comentario opcional (horario preferido, edades, etc.)</mat-label>
+          <input
+            matInput
+            [value]="notes()"
+            placeholder="Ej: Preferimos de mañana o al atardecer..."
+            (input)="setText('notes', $event)"
+          />
+        </mat-form-field>
+
+        <div class="modal-actions">
+          <button mat-stroked-button class="btn btn-outline-ink" type="button" matStepperPrevious>Atrás</button>
+          <button mat-flat-button class="btn btn-primary" type="button" matStepperNext>Ver resumen</button>
+        </div>
+      </mat-step>
+
+      <mat-step label="WhatsApp">
+        <dl class="summary-dl">
+          <div>
+            <dt>Modalidad</dt>
+            <dd>{{ service() }}</dd>
+          </div>
+          <div>
+            <dt>Participantes / Nivel</dt>
+            <dd>{{ level() }}</dd>
+          </div>
+          <div>
+            <dt>Cuándo</dt>
+            <dd>{{ when() }}</dd>
+          </div>
+          <div>
+            <dt>Ubicación</dt>
+            <dd>La Barra, Punta del Este</dd>
+          </div>
+        </dl>
+
+        <mat-form-field appearance="outline" class="booking-field" subscriptSizing="dynamic">
+          <mat-label>Tu nombre (opcional)</mat-label>
+          <input matInput [value]="name()" placeholder="Ej: Martín" (input)="setText('name', $event)" />
+        </mat-form-field>
+
+        <p class="field-label">Vista previa del mensaje a enviar por WhatsApp:</p>
+        <pre class="wa-preview">{{ message() }}</pre>
+
+        <div class="modal-actions">
+          <button mat-stroked-button class="btn btn-outline-ink" type="button" matStepperPrevious>Atrás</button>
+          <a mat-flat-button class="btn btn-gold" [href]="waUrl()" target="_blank" rel="noopener noreferrer" (click)="sent.set(true)">
+            <span>Enviar por WhatsApp</span>
+            <mat-icon>north_east</mat-icon>
+          </a>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  } @else {
+    <p class="booking-lead confirm">
+      ¡Listo! Se abrió WhatsApp para conversar directo con <strong>Danishka</strong>
+      (<strong>{{ phone }}</strong>). Si no se abrió automáticamente, podés tocar el botón de abajo.
+    </p>
+    <div class="modal-actions">
+      <button mat-stroked-button class="btn btn-outline-ink" type="button" (click)="restart()">Nueva consulta</button>
+      <a mat-flat-button class="btn btn-primary" [href]="waUrl()" target="_blank" rel="noopener noreferrer">
+        Abrir WhatsApp
+      </a>
+    </div>
+  }
+</div>

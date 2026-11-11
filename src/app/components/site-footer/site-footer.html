@@ -1,0 +1,47 @@
+<footer class="footer" id="colophon" data-fab-hide>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h2>SUP Sup-Surf &amp; Surf School</h2>
+        <p>
+          Travesías guiadas en Stand Up Paddle, clases de surf y SUP surf en el mar y alquiler de
+          equipos en La Barra, Punta del Este, Maldonado.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Navegación</h2>
+        <ul class="footer-links">
+          @for (link of links; track link.href) {
+            <li><a [href]="link.href">{{ link.label }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Contacto Directo</h2>
+        <ul class="footer-links">
+          <li>
+            <a [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+              WhatsApp: {{ phone }} ({{ phoneIntl }})
+            </a>
+          </li>
+          <li><span>Atención: Danishka</span></li>
+          <li><span>Zona: La Barra, 20001, Maldonado</span></li>
+          <li>
+            <a [href]="mapsUrl" target="_blank" rel="noopener noreferrer">Ficha oficial en Google Maps ↗</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <mat-divider class="footer-divider" />
+
+    <p class="footer-wordmark" aria-hidden="true">SUP <em>&amp; Surf</em></p>
+
+    <div class="footer-bottom">
+      <span>© {{ year }} SUP Sup-Surf &amp; Surf School · La Barra, Punta del Este, Uruguay</span>
+      <span>Imágenes ilustrativas de referencia · Coordinación previa por WhatsApp</span>
+    </div>
+  </div>
+</footer>

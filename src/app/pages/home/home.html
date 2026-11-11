@@ -1,0 +1,486 @@
+<section class="hero" id="top" data-fab-hide>
+  <div class="hero-media" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 767px)" srcset="img/hero-m.jpg" />
+      <img
+        src="img/hero.jpg"
+        alt="Travesías en Stand Up Paddle y surf en La Barra, Punta del Este"
+        width="1920"
+        height="1152"
+      />
+    </picture>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="hero-meta">
+    <div class="container hero-meta-inner">
+      <span>La Barra · Punta del Este · Maldonado</span>
+      <span class="hero-meta-status">
+        <span class="pulse" aria-hidden="true"></span>
+        Temporada y salidas todo el año · Coordinación previa
+      </span>
+      <span>★ 5,0 en Google Maps · 11 reseñas</span>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div class="container grid-12 hero-grid">
+      <div class="hero-main">
+        <p class="hero-kicker">
+          <span class="diamond" aria-hidden="true"></span>
+          <span>SUP Sup-Surf &amp; Surf School · La Barra</span>
+        </p>
+        <h1 class="hero-title">
+          <span class="line"><span>Travesías en <em>SUP</em></span></span>
+          <span class="line"><span>y escuela de surf en el mar.</span></span>
+        </h1>
+        <p class="hero-sub">
+          Desde el agua calma del Arroyo Maldonado hasta las olas de La Barra. Salidas guiadas en
+          Stand Up Paddle, clases de surf y SUP surf a tu ritmo, con todos los equipos incluidos y
+          trato directo.
+        </p>
+        <div class="hero-actions">
+          <button mat-flat-button class="btn btn-gold" type="button" (click)="reserve('Travesía en SUP')">
+            <span>Coordinar salida o clase</span>
+            <mat-icon>north_east</mat-icon>
+          </button>
+          <a mat-stroked-button class="btn btn-outline-light" href="#modalidades">
+            <span>Ver modalidades</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="Coordenadas y referencia">
+        <div class="hero-coords">
+          <strong>Arroyo &amp; Océano Atlántico</strong>
+          La Barra, Maldonado · Uruguay<br />
+          34°54′52″ S · 54°51′28″ O
+        </div>
+        <div class="hero-coords">
+          <strong>Atención directa</strong>
+          Danishka · WhatsApp {{ phone }}<br />
+          Grupos reducidos e individuales
+        </div>
+        <a href="#escuela" class="scroll-cue">
+          <span class="scroll-cue-line" aria-hidden="true"></span>
+          <span>Descubrir la experiencia</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="container hero-foot-inner">
+      <span>SUP Sup-Surf &amp; Surf School · La Barra</span>
+      <span>Travesías en SUP · Clases de Surf · SUP Surf · Alquiler de equipos</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Indicadores de respaldo">
+  <div class="container trust-grid">
+    @for (item of trust; track item.label) {
+      <mat-card class="trust-item" appearance="outlined" appReveal>
+        <div class="trust-top">
+          <span class="trust-num">{{ item.value }}</span>
+          @if (item.stars) {
+            <span class="stars-inline" aria-label="5 de 5 estrellas">
+              @for (star of stars; track star) {
+                <mat-icon>star</mat-icon>
+              }
+            </span>
+          } @else {
+            <span class="trust-unit">{{ item.unit }}</span>
+          }
+        </div>
+        <p class="trust-label">{{ item.label }}</p>
+      </mat-card>
+    }
+  </div>
+</section>
+
+<section class="manifesto" id="escuela">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">La Escuela · La Barra</span>
+        <span class="section-index">01 / 07 — Filosofía en el agua</span>
+      </div>
+    </header>
+
+    <div class="grid-12">
+      <div class="manifesto-media" appReveal>
+        <div class="mf-frame">
+          <div class="mf-main">
+            <img src="img/proceso.jpg" alt="Remada en Stand Up Paddle sobre aguas calmas" width="1280" height="1600" />
+          </div>
+          <div class="mf-inset">
+            <img src="img/surf.jpg" alt="Clases de surf en el mar en Punta del Este" width="800" height="800" />
+          </div>
+        </div>
+        <div class="mf-caption">
+          <span>La Barra · Punta del Este</span>
+          <span>Fotografías de referencia</span>
+        </div>
+      </div>
+
+      <div class="manifesto-copy" appReveal>
+        <h2 class="sec-title serif-display">
+          Entrar al agua con <em>confianza</em>, técnica clara y el escenario adecuado.
+        </h2>
+        <blockquote class="manifesto-quote">
+          «Cada persona tiene su propio ritmo en el agua: nuestro trabajo es leer el viento y la
+          marea para que tu primera remada o tu primera ola se sientan naturales.»
+        </blockquote>
+        <div class="manifesto-body">
+          <p>
+            En <strong>SUP Sup-Surf &amp; Surf School</strong> combinamos dos mundos que hacen única a
+            La Barra: la serenidad del arroyo para remar de pie en travesías guiadas y la energía del
+            mar abierto para aprender surf o iniciarse en el SUP surf.
+          </p>
+          <p>
+            No hacemos grupos masivos ni clases apresuradas. Antes de cada salida revisamos las
+            condiciones del día para recomendarte el horario donde el agua está más noble, preparando
+            la tabla y el traje adecuados a tu altura y nivel.
+          </p>
+        </div>
+        <div class="manifesto-sig">
+          <div>
+            <div class="sig-name">Danishka</div>
+            <div class="sig-role">Coordinación &amp; Escuela · SUP Sup-Surf &amp; Surf School</div>
+          </div>
+          <button mat-stroked-button class="btn btn-outline-ink" type="button" (click)="reserve('Consulta general')">
+            <span>Consultar disponibilidad</span>
+          </button>
+        </div>
+        <div class="manifesto-facts">
+          <div class="mf-fact"><strong>Todos</strong><span>Los niveles y edades</span></div>
+          <div class="mf-fact"><strong>La Barra</strong><span>Punto de encuentro</span></div>
+          <div class="mf-fact"><strong>★ 5,0</strong><span>Reseñas en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    @for (copy of copies; track copy) {
+      <div class="marquee-group">
+        @for (item of marquee; track item) {
+          <span class="marquee-item">{{ item }} <span class="diamond"></span></span>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+<section class="spec is-dark" id="modalidades">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">Modalidades en el Agua</span>
+        <span class="section-index">02 / 07 — Experiencias a medida</span>
+      </div>
+      <h2 class="sec-title serif-display">Tres formas de vivir <em>La Barra</em> desde el agua.</h2>
+      <p class="sec-lead">
+        Seleccioná la modalidad que te interesa para conocer qué incluye cada salida y coordinar
+        directamente tu turno por WhatsApp.
+      </p>
+    </header>
+
+    <div class="grid-12" appReveal>
+      <div class="spec-nav" role="tablist" aria-label="Modalidades de la escuela">
+        @for (item of modalities; track item.id) {
+          <button
+            class="spec-tab"
+            type="button"
+            role="tab"
+            matRipple
+            [class.is-active]="selected() === $index"
+            [attr.aria-selected]="selected() === $index"
+            (click)="selected.set($index)"
+          >
+            <span class="spec-tab-num">{{ item.num }}</span>
+            <span>
+              <span class="spec-tab-title">{{ item.title }}</span>
+              <span class="spec-tab-sub">{{ item.subtitle }}</span>
+            </span>
+            <span class="spec-tab-arrow" aria-hidden="true">→</span>
+          </button>
+        }
+      </div>
+
+      <div class="spec-stage">
+        <div class="spec-visual">
+          <span class="spec-visual-tag">{{ activeModality().tag }}</span>
+          @for (item of modalities; track item.id) {
+            <img [src]="item.image" [alt]="item.imageAlt" [class.is-active]="selected() === $index" />
+          }
+        </div>
+
+        <mat-card class="spec-card" appearance="filled">
+          <div class="spec-card-head">
+            <h3 class="spec-card-title">{{ activeModality().cardTitle }}</h3>
+            <mat-chip-set aria-label="Tipo de salida">
+              <mat-chip disableRipple>{{ activeModality().badge }}</mat-chip>
+            </mat-chip-set>
+          </div>
+          <p class="spec-card-desc">{{ activeModality().description }}</p>
+          <ul class="spec-list">
+            @for (point of activeModality().items; track point) {
+              <li><span class="diamond" aria-hidden="true"></span>{{ point }}</li>
+            }
+          </ul>
+          <button
+            mat-flat-button
+            class="btn btn-primary"
+            type="button"
+            (click)="reserve(activeModality().service)"
+          >
+            <span>{{ activeModality().cta }}</span>
+            <mat-icon>north_east</mat-icon>
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">Escenarios en La Barra</span>
+        <span class="section-index">03 / 07 — Agua calma vs. Mar abierto</span>
+      </div>
+      <h2 class="sec-title serif-display">
+        Dos ritmos complementarios en un mismo <em>balneario</em>.
+      </h2>
+      <p class="sec-lead">
+        Deslizá el comparador para explorar la diferencia entre una salida de luz dorada y una sesión
+        activa en aguas abiertas.
+      </p>
+    </header>
+
+    <div class="compare-wrap" appReveal>
+      <div class="compare-head">
+        <h3>Luz de mañana en la costa ↔ Travesía al atardecer</h3>
+        <p>Simulación ilustrativa sobre fotografía de referencia · Deslizá el cursor</p>
+      </div>
+      <div class="compare-stage" [style.--pos]="compare() + '%'">
+        <img src="img/comparador-v2.jpg" alt="Vista con luz cálida de atardecer en el agua" />
+        <img class="compare-before" src="img/sup.jpg" alt="Vista diurna de travesía en Stand Up Paddle" />
+        <span class="compare-label is-left">Mañana · Luz clara</span>
+        <span class="compare-label is-right">Atardecer · Hora dorada</span>
+        <div class="compare-handle" aria-hidden="true"><div class="compare-knob">↔</div></div>
+        <mat-slider class="compare-slider" [min]="8" [max]="92" [step]="0.5">
+          <input
+            matSliderThumb
+            aria-label="Comparar luz de mañana y atardecer en el agua"
+            [value]="compare()"
+            (valueChange)="compare.set($event)"
+          />
+        </mat-slider>
+      </div>
+    </div>
+
+    <div class="gal-grid">
+      @for (photo of gallery; track photo.src) {
+        <mat-card class="gal-item" [attr.data-span]="photo.span" appearance="outlined" appReveal>
+          <div class="gal-media">
+            <img [src]="photo.src" [alt]="photo.alt" />
+          </div>
+          <mat-card-content class="gal-cap">
+            <strong>{{ photo.title }}</strong>
+            <span>{{ photo.meta }}</span>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+    <p class="gal-note">* Fotografías de referencia ilustrativas de la actividad náutica.</p>
+  </div>
+</section>
+
+<section class="band" aria-label="Cita destacada">
+  <div class="band-bg" aria-hidden="true">
+    <img src="img/mar.jpg" alt="" />
+  </div>
+  <div class="container band-inner" appReveal>
+    <span class="diamond" aria-hidden="true"></span>
+    <p class="band-quote serif-display">
+      «El mejor día en el agua empieza antes de mojarse: eligiendo juntos la marea, el viento y la
+      tabla exacta para vos.»
+    </p>
+    <span class="band-foot">SUP Sup-Surf &amp; Surf School · La Barra, Punta del Este</span>
+  </div>
+</section>
+
+<section class="process" id="proceso">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">Cómo Funciona</span>
+        <span class="section-index">04 / 07 — Simple y sin fricción</span>
+      </div>
+      <h2 class="sec-title serif-display">De tu mensaje de WhatsApp al <em>agua</em> en tres pasos.</h2>
+    </header>
+
+    <div class="process-grid">
+      @for (step of steps; track step.num) {
+        <mat-card class="step-card" appearance="outlined" appReveal>
+          <div class="step-top">
+            <span class="step-num">{{ step.num }}</span>
+            <span class="step-tag">{{ step.tag }}</span>
+          </div>
+          <h3 class="step-title">{{ step.title }}</h3>
+          <p class="step-desc">{{ step.description }}</p>
+        </mat-card>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="reviews is-dark" id="resenas">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">Reputación Verificada</span>
+        <span class="section-index">05 / 07 — Google Maps</span>
+      </div>
+      <h2 class="sec-title serif-display">Calificación perfecta de <em>5,0 estrellas</em> en La Barra.</h2>
+    </header>
+
+    <div class="reviews-hero" appReveal>
+      <div class="rv-score-box">
+        <div class="rv-big">5,0<small>/5</small></div>
+        <div>
+          <div class="rv-stars" aria-label="5 de 5 estrellas">
+            @for (star of stars; track star) {
+              <mat-icon>star</mat-icon>
+            }
+          </div>
+          <p class="rv-meta">Basado en 11 reseñas públicas en Google Maps · La Barra, Maldonado</p>
+        </div>
+      </div>
+      <a mat-stroked-button class="btn btn-outline-light" [href]="mapsUrl" target="_blank" rel="noopener noreferrer">
+        <span>Ver ficha en Google Maps</span>
+        <mat-icon>north_east</mat-icon>
+      </a>
+    </div>
+
+    <div class="review-grid">
+      @for (pillar of pillars; track pillar.kicker) {
+        <mat-card class="review-card" appearance="outlined" appReveal>
+          <div>
+            <span class="review-card-kicker">{{ pillar.kicker }}</span>
+            <h3>{{ pillar.title }}</h3>
+            <p>{{ pillar.body }}</p>
+          </div>
+          <span class="rv-meta">{{ pillar.meta }}</span>
+        </mat-card>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="coverage" id="ubicacion">
+  <div class="container">
+    <header class="sec-head" appReveal>
+      <div class="sec-head-top">
+        <span class="eyebrow">Ubicación &amp; Zonas</span>
+        <span class="section-index">06 / 07 — Costa de Maldonado</span>
+      </div>
+      <h2 class="sec-title serif-display">Punto de encuentro en <em>La Barra</em>, Punta del Este.</h2>
+    </header>
+
+    <div class="grid-12" appReveal>
+      <div class="cov-info">
+        <p class="sec-lead">
+          Operamos en La Barra (Código Postal 20001, Maldonado), coordinando el punto exacto de
+          encuentro por WhatsApp según la modalidad elegida y las condiciones de marea del día.
+        </p>
+        <mat-list class="zone-list">
+          @for (zone of zones; track zone.title) {
+            <mat-list-item>
+              <span matListItemTitle>{{ zone.title }}</span>
+              <span matListItemLine>{{ zone.detail }}</span>
+            </mat-list-item>
+          }
+        </mat-list>
+        <button mat-flat-button class="btn btn-primary" type="button" (click)="reserve('Travesía en SUP')">
+          <span>Consultar ubicación para mi salida</span>
+          <mat-icon>north_east</mat-icon>
+        </button>
+      </div>
+
+      <div class="cov-map">
+        <iframe
+          title="Mapa de ubicación de SUP Sup-Surf y Surf School en La Barra, Maldonado"
+          [src]="mapEmbed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div class="map-card">
+          <span>Punto Base · Maldonado</span>
+          <strong>SUP Sup-Surf &amp; Surf School</strong>
+          <p>La Barra, 20001 · Punta del Este · WhatsApp {{ phone }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="grid-12">
+      <aside class="faq-aside" appReveal>
+        <span class="eyebrow">Preguntas Frecuentes</span>
+        <h2 class="sec-title serif-display">Todo claro antes de <em>entrar al agua</em>.</h2>
+        <p class="sec-lead">
+          ¿Tenés otra consulta sobre horarios, niños o salidas en grupo? Escribinos directo por WhatsApp.
+        </p>
+        <button mat-stroked-button class="btn btn-outline-ink" type="button" (click)="reserve('Consulta general')">
+          <span>Hacer una pregunta</span>
+        </button>
+      </aside>
+
+      <mat-accordion class="faq-list" appReveal>
+        @for (item of faqs; track item.q) {
+          <mat-expansion-panel [expanded]="$first" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ item.q }}</mat-panel-title>
+              <mat-icon class="faq-icon">add</mat-icon>
+            </mat-expansion-panel-header>
+            <p>{{ item.a }}</p>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+    </div>
+  </div>
+</section>
+
+<section class="cta is-dark" id="reserva" data-fab-hide>
+  <div class="container">
+    <div class="cta-box" appReveal>
+      <span class="eyebrow">Reserva Directa · La Barra</span>
+      <h2 class="cta-title serif-display">
+        Coordinemos tu próxima salida en <em>SUP</em> o clase de surf.
+      </h2>
+      <div class="hero-actions">
+        <button mat-flat-button class="btn btn-gold" type="button" (click)="reserve('Travesía en SUP')">
+          <span>Armar mi consulta en 3 pasos</span>
+          <mat-icon>north_east</mat-icon>
+        </button>
+        <a mat-stroked-button class="btn btn-outline-light" [href]="directWa" target="_blank" rel="noopener noreferrer">
+          <span>WhatsApp directo · {{ phone }}</span>
+        </a>
+      </div>
+      <div class="cta-meta">
+        <span>SUP Sup-Surf &amp; Surf School</span>
+        <span>La Barra · Punta del Este · Maldonado</span>
+        <span>★ 5,0 en Google Maps (11 reseñas)</span>
+      </div>
+    </div>
+  </div>
+</section>

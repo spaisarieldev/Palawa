@@ -1,0 +1,64 @@
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+@if (ui.introVisible()) {
+  <div class="intro" [class.is-go]="introGo()" [class.is-done]="ui.introDone()" aria-hidden="true">
+    <div class="intro-mark">
+      <span class="brand-emblem">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M16 4C10.5 11.5 9.5 19.5 12 28h8c2.5-8.5 1.5-16.5-4-24Z" />
+          <path d="M5 24c3.5-2.4 7.2-2.4 11 0s7.5 2.4 11 0" stroke-linecap="round" />
+        </svg>
+      </span>
+      <p class="word">SUP <em>&amp; Surf</em></p>
+    </div>
+    <div class="intro-bar"><span></span></div>
+    <p class="intro-sub">La Barra · Punta del Este</p>
+  </div>
+}
+
+<mat-sidenav-container class="shell" autosize>
+  <mat-sidenav
+    class="mobile-menu"
+    mode="over"
+    position="end"
+    fixedInViewport
+    [fixedTopGap]="ui.scrolled() ? 68 : 80"
+    [opened]="ui.menuOpen()"
+    (openedChange)="ui.menuOpen.set($event)"
+  >
+    <nav class="mobile-nav-list" aria-label="Menú móvil">
+      @for (item of nav; track item.id) {
+        <a class="mobile-nav-link" matRipple [href]="'#' + item.id" (click)="ui.menuOpen.set(false)">
+          {{ item.long }}
+          <span>{{ item.num }}</span>
+        </a>
+      }
+    </nav>
+    <div class="mobile-menu-foot">
+      <p>Coordinación directa con Danishka · WhatsApp <strong>{{ phone }}</strong></p>
+      <button mat-flat-button class="btn btn-gold" type="button" (click)="reserve()">
+        Armar mi consulta por WhatsApp
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-site-header />
+    <main id="contenido">
+      <router-outlet />
+    </main>
+    <app-site-footer />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<button
+  mat-flat-button
+  type="button"
+  class="fab"
+  [class.is-hidden]="ui.fabHidden() || ui.menuOpen()"
+  aria-label="Coordinar salida o clase por WhatsApp"
+  (click)="reserve()"
+>
+  <span class="pulse" aria-hidden="true"></span>
+  <span>Reservar · WhatsApp</span>
+</button>
