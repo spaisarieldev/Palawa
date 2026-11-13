@@ -25,13 +25,16 @@ export const NAV: NavItem[] = [
   { id: 'proceso', label: 'Proceso', long: 'Cómo salimos al agua', num: '04' },
   { id: 'resenas', label: 'Reseñas', long: 'Reseñas 5,0 ★', num: '05' },
   { id: 'ubicacion', label: 'Ubicación', long: 'Ubicación en La Barra', num: '06' },
+  { id: 'faq', label: 'FAQ', long: 'Preguntas frecuentes', num: '07' },
 ];
 
 export const MARQUEE = [
+  'La Barra · Punta del Este · Maldonado',
+  'Temporada y salidas todo el año · Coordinación previa',
+  '★ 5,0 en Google Maps · 11 reseñas',
   'Travesías en SUP',
   'Clases de Surf en el Mar',
   'SUP Surf en las Olas',
-  'La Barra · Punta del Este',
   'Equipos y Neoprene Incluidos',
   'Salidas al Atardecer',
 ];
@@ -89,8 +92,8 @@ export const MODALITIES: Modality[] = [
     title: 'Travesías guiadas en SUP',
     subtitle: 'Aguas calmas · Naturaleza, técnica de remada y paseos al atardecer',
     tag: '01 · Agua calma & Travesías',
-    image: 'img/sup.jpg',
-    imageAlt: 'Travesía en Stand Up Paddle en aguas tranquilas',
+    image: 'img/modalidades.jpg',
+    imageAlt: 'Collage de salidas en SUP y surf en La Barra',
     cardTitle: 'Travesías en Stand Up Paddle',
     badge: 'Sin experiencia previa',
     description:
@@ -112,8 +115,8 @@ export const MODALITIES: Modality[] = [
     title: 'Clases de Surf & SUP Surf',
     subtitle: 'En el mar · Iniciación desde cero, lectura de olas y perfeccionamiento',
     tag: '02 · Clases en el mar',
-    image: 'img/surf.jpg',
-    imageAlt: 'Clase de surf en las olas de La Barra',
+    image: 'img/modalidades.jpg',
+    imageAlt: 'Collage de salidas en SUP y surf en La Barra',
     cardTitle: 'Clases de Surf & SUP Surf en el Mar',
     badge: 'Iniciación y Progreso',
     description:
@@ -135,8 +138,8 @@ export const MODALITIES: Modality[] = [
     title: 'Alquiler de Equipos & Grupos',
     subtitle: 'Tablas SUP, surf, remos y trajes · Salidas en familia o con amigos',
     tag: '03 · Equipamiento',
-    image: 'img/alquiler.jpg',
-    imageAlt: 'Tablas de SUP y surf listas en la costa',
+    image: 'img/modalidades.jpg',
+    imageAlt: 'Collage de salidas en SUP y surf en La Barra',
     cardTitle: 'Alquiler de Equipos & Salidas Grupales',
     badge: 'Por hora o jornada',
     description:
@@ -322,13 +325,6 @@ export const LEVEL_OPTIONS: Choice[] = [
   { value: 'Grupo o familia (3+ personas)', label: 'Grupo o familia (3+)' },
 ];
 
-export const WHEN_OPTIONS: Choice[] = [
-  { value: 'Hoy o mañana', label: 'Hoy o mañana' },
-  { value: 'Este fin de semana', label: 'Este fin de semana' },
-  { value: 'Próxima semana / Vacaciones', label: 'Próximos días / Vacaciones' },
-  { value: 'A coordinar según clima', label: 'Según mejor marea y clima' },
-];
-
 export const FOOTER_LINKS = [
   { href: '#modalidades', label: 'Modalidades y clases' },
   { href: '#escuela', label: 'La Escuela' },
@@ -336,4 +332,5 @@ export const FOOTER_LINKS = [
   { href: '#proceso', label: 'Cómo reservamos' },
   { href: '#resenas', label: 'Reseñas en Google Maps' },
   { href: '#ubicacion', label: 'Ubicación en La Barra' },
+  { href: '#faq', label: 'Preguntas frecuentes' },
 ];

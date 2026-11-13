@@ -18,6 +18,7 @@ export class BookingService {
       maxHeight: '92vh',
       autoFocus: 'dialog',
       restoreFocus: true,
+      ariaLabel: 'Consulta de disponibilidad',
     });
   }
 }

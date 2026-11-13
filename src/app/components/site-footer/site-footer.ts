@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { FOOTER_LINKS, MAPS_URL, PHONE_DISPLAY, PHONE_E164, whatsappUrl } from '../../data/site.data';
+import { UiState } from '../../state/ui-state';
 
 @Component({
   selector: 'app-site-footer',
@@ -8,6 +9,7 @@ import { FOOTER_LINKS, MAPS_URL, PHONE_DISPLAY, PHONE_E164, whatsappUrl } from '
   templateUrl: './site-footer.html',
 })
 export class SiteFooter {
+  protected readonly ui = inject(UiState);
   protected readonly links = FOOTER_LINKS;
   protected readonly mapsUrl = MAPS_URL;
   protected readonly phone = PHONE_DISPLAY;

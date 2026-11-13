@@ -1,6 +1,8 @@
 import { Component, computed, inject, signal } from '@angular/core';
+import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,7 +13,6 @@ import {
   LEVEL_OPTIONS,
   PHONE_DISPLAY,
   SERVICE_OPTIONS,
-  WHEN_OPTIONS,
   whatsappUrl,
 } from '../../data/site.data';
 
@@ -25,11 +26,13 @@ export interface BookingPreset {
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatDatepickerModule,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
   ],
+  providers: [provideNativeDateAdapter(), { provide: MAT_DATE_LOCALE, useValue: 'es-UY' }],
   templateUrl: './booking-dialog.html',
 })
 export class BookingDialog {
@@ -38,21 +41,27 @@ export class BookingDialog {
 
   protected readonly phone = PHONE_DISPLAY;
   protected readonly levels = LEVEL_OPTIONS;
-  protected readonly whens = WHEN_OPTIONS;
-  protected readonly stepLabels = [
-    'Paso 1 de 3 · Modalidad',
-    'Paso 2 de 3 · Participantes y Fecha',
-    'Paso 3 de 3 · Confirmar WhatsApp',
-  ];
+  protected readonly minDate = this.startOfToday();
 
   protected readonly services: Choice[] = this.buildServices();
   protected readonly service = signal(this.data.service || 'Travesía en SUP');
   protected readonly level = signal(LEVEL_OPTIONS[0].value);
-  protected readonly when = signal(WHEN_OPTIONS[0].value);
+  protected readonly date = signal<Date | null>(this.defaultDate());
   protected readonly notes = signal('');
   protected readonly name = signal('');
   protected readonly sent = signal(false);
   protected readonly step = signal(0);
+
+  protected readonly whenLabel = computed(() => {
+    const value = this.date();
+    if (!value) return 'Sin fecha elegida';
+    return value.toLocaleDateString('es-UY', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+  });
 
   protected readonly message = computed(() => {
     const lines = [
@@ -60,7 +69,7 @@ export class BookingDialog {
       '',
       `• *Modalidad:* ${this.service()}`,
       `• *Nivel / Grupo:* ${this.level()}`,
-      `• *Cuándo:* ${this.when()}`,
+      `• *Fecha:* ${this.whenLabel()}`,
     ];
     if (this.notes().trim()) lines.push(`• *Detalle:* ${this.notes().trim()}`);
     if (this.name().trim()) lines.push(`• *Nombre:* ${this.name().trim()}`);
@@ -70,11 +79,14 @@ export class BookingDialog {
 
   protected readonly waUrl = computed(() => whatsappUrl(this.message()));
 
-  protected choose(target: 'service' | 'level' | 'when', value: string | null): void {
+  protected choose(target: 'service' | 'level', value: string | null): void {
     if (!value) return;
     if (target === 'service') this.service.set(value);
     if (target === 'level') this.level.set(value);
-    if (target === 'when') this.when.set(value);
+  }
+
+  protected setDate(event: MatDatepickerInputEvent<Date>): void {
+    this.date.set(event.value);
   }
 
   protected setText(target: 'notes' | 'name', event: Event): void {
@@ -105,4 +117,17 @@ export class BookingDialog {
     }
     return options;
   }
+
+  private startOfToday(): Date {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return today;
+  }
+
+  private defaultDate(): Date {
+    const next = this.startOfToday();
+    next.setDate(next.getDate() + 1);
+    return next;
+  }
 }
+

@@ -1,4 +1,4 @@
-import { afterNextRender, Component, computed, inject, OnDestroy, signal } from '@angular/core';
+import { afterNextRender, Component, computed, effect, inject, OnDestroy, signal } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -44,10 +44,11 @@ import { UiState } from '../../state/ui-state';
   templateUrl: './home.html',
 })
 export class Home implements OnDestroy {
-  private readonly ui = inject(UiState);
+  protected readonly ui = inject(UiState);
   private readonly booking = inject(BookingService);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly cleanups: Array<() => void> = [];
+  private sectionSpy: IntersectionObserver | null = null;
 
   protected readonly trust = TRUST;
   protected readonly modalities = MODALITIES;
@@ -70,6 +71,10 @@ export class Home implements OnDestroy {
 
   constructor() {
     afterNextRender(() => this.bindChrome());
+    effect(() => {
+      this.ui.openSection();
+      queueMicrotask(() => this.observeSections());
+    });
   }
 
   ngOnDestroy(): void {
@@ -81,19 +86,7 @@ export class Home implements OnDestroy {
   }
 
   private bindChrome(): void {
-    const sections = NAV.map((item) => document.getElementById(item.id)).filter(
-      (element): element is HTMLElement => element !== null,
-    );
-    const spy = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) this.ui.activeSection.set(visible.target.id);
-      },
-      { rootMargin: '-42% 0px -48% 0px', threshold: [0.15, 0.4, 0.7] },
-    );
-    sections.forEach((section) => spy.observe(section));
+    this.observeSections();
 
     const visibleZones = new Set<Element>();
     const fabSpy = new IntersectionObserver(
@@ -109,8 +102,27 @@ export class Home implements OnDestroy {
     document.querySelectorAll('[data-fab-hide]').forEach((zone) => fabSpy.observe(zone));
 
     this.cleanups.push(() => {
-      spy.disconnect();
+      this.sectionSpy?.disconnect();
       fabSpy.disconnect();
     });
+  }
+
+  private observeSections(): void {
+    this.sectionSpy?.disconnect();
+    const sections = NAV.map((item) => document.getElementById(item.id)).filter(
+      (element): element is HTMLElement => element !== null,
+    );
+    if (!sections.length) return;
+
+    this.sectionSpy = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) this.ui.activeSection.set(visible.target.id);
+      },
+      { rootMargin: '-42% 0px -48% 0px', threshold: [0.15, 0.4, 0.7] },
+    );
+    sections.forEach((section) => this.sectionSpy?.observe(section));
   }
 }
