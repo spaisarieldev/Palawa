@@ -1,16 +1,13 @@
 <mat-toolbar class="site-header" [class.is-scrolled]="ui.scrolled()">
   <div class="container header-inner">
-    <a href="#top" class="brand" aria-label="SUP Sup-Surf y Surf School — Inicio">
-      <span class="brand-emblem" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
-          <path d="M16 4C10.5 11.5 9.5 19.5 12 28h8c2.5-8.5 1.5-16.5-4-24Z" />
-          <path d="M5 24c3.5-2.4 7.2-2.4 11 0s7.5 2.4 11 0" stroke-linecap="round" />
-        </svg>
-      </span>
-      <span class="brand-text">
-        <span class="brand-name">SUP &amp; Surf School</span>
-        <span class="brand-tag">La Barra · Punta del Este</span>
-      </span>
+    <a href="#top" class="brand" aria-label="Palawa Surf &amp; Co — Inicio" (click)="ui.showSection('top', $event)">
+      <img
+        class="brand-logo"
+        src="img/logo-palawa.png"
+        alt="Palawa Surf &amp; Co · Surf &amp; SUP"
+        width="180"
+        height="118"
+      />
     </a>
 
     <nav class="nav-desktop" aria-label="Principal">
@@ -19,6 +16,7 @@
           class="nav-link"
           [class.is-active]="ui.activeSection() === item.id"
           [href]="'#' + item.id"
+          (click)="ui.showSection(item.id, $event)"
         >
           {{ item.label }}
         </a>

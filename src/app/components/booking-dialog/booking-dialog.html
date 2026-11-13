@@ -1,9 +1,5 @@
 <div class="booking">
   <div class="booking-top">
-    <div>
-      <p class="eyebrow">{{ sent() ? 'Consulta lista · WhatsApp' : stepLabels[step()] }}</p>
-      <h2 class="serif-display booking-title" id="booking-title">Armá tu consulta para La Barra</h2>
-    </div>
     <button mat-icon-button type="button" aria-label="Cerrar ventana" (click)="close()">
       <mat-icon>close</mat-icon>
     </button>
@@ -54,16 +50,19 @@
         </mat-button-toggle-group>
 
         <p class="field-label">¿Para cuándo te gustaría coordinar?</p>
-        <mat-button-toggle-group
-          class="opt-grid cols-2"
-          [value]="when()"
-          hideSingleSelectionIndicator
-          (change)="choose('when', $event.value)"
-        >
-          @for (option of whens; track option.value) {
-            <mat-button-toggle [value]="option.value">{{ option.label }}</mat-button-toggle>
-          }
-        </mat-button-toggle-group>
+        <mat-form-field appearance="outline" class="booking-field" subscriptSizing="dynamic">
+          <mat-label>Elegí una fecha</mat-label>
+          <input
+            matInput
+            [matDatepicker]="datePicker"
+            [min]="minDate"
+            [value]="date()"
+            (dateChange)="setDate($event)"
+            readonly
+          />
+          <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+          <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
 
         <mat-form-field appearance="outline" class="booking-field" subscriptSizing="dynamic">
           <mat-label>Comentario opcional (horario preferido, edades, etc.)</mat-label>
@@ -92,8 +91,8 @@
             <dd>{{ level() }}</dd>
           </div>
           <div>
-            <dt>Cuándo</dt>
-            <dd>{{ when() }}</dd>
+            <dt>Fecha</dt>
+            <dd>{{ whenLabel() }}</dd>
           </div>
           <div>
             <dt>Ubicación</dt>

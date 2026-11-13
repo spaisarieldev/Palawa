@@ -1,27 +1,29 @@
+@if (ui.openSection() === null) {
+<div class="marquee marquee-home" aria-hidden="true">
+  <div class="marquee-track">
+    @for (copy of copies; track copy) {
+      <div class="marquee-group">
+        @for (item of marquee; track item) {
+          <span class="marquee-item">{{ item }} <span class="diamond"></span></span>
+        }
+      </div>
+    }
+  </div>
+</div>
+
 <section class="hero" id="top" data-fab-hide>
   <div class="hero-media" aria-hidden="true">
     <picture>
       <source media="(max-width: 767px)" srcset="img/hero-m.jpg" />
       <img
         src="img/hero.jpg"
-        alt="Travesías en Stand Up Paddle y surf en La Barra, Punta del Este"
-        width="1920"
-        height="1152"
+        alt="Pareja remando en Stand Up Paddle en aguas calmas de La Barra"
+        width="1600"
+        height="1200"
       />
     </picture>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
-
-  <div class="hero-meta">
-    <div class="container hero-meta-inner">
-      <span>La Barra · Punta del Este · Maldonado</span>
-      <span class="hero-meta-status">
-        <span class="pulse" aria-hidden="true"></span>
-        Temporada y salidas todo el año · Coordinación previa
-      </span>
-      <span>★ 5,0 en Google Maps · 11 reseñas</span>
-    </div>
-  </div>
 
   <div class="hero-body">
     <div class="container grid-12 hero-grid">
@@ -44,7 +46,7 @@
             <span>Coordinar salida o clase</span>
             <mat-icon>north_east</mat-icon>
           </button>
-          <a mat-stroked-button class="btn btn-outline-light" href="#modalidades">
+          <a mat-stroked-button class="btn btn-outline-light" href="#modalidades" (click)="ui.showSection('modalidades', $event)">
             <span>Ver modalidades</span>
           </a>
         </div>
@@ -61,7 +63,7 @@
           Danishka · WhatsApp {{ phone }}<br />
           Grupos reducidos e individuales
         </div>
-        <a href="#escuela" class="scroll-cue">
+        <a href="#escuela" class="scroll-cue" (click)="ui.showSection('escuela', $event)">
           <span class="scroll-cue-line" aria-hidden="true"></span>
           <span>Descubrir la experiencia</span>
         </a>
@@ -76,29 +78,9 @@
     </div>
   </div>
 </section>
+}
 
-<section class="trust" aria-label="Indicadores de respaldo">
-  <div class="container trust-grid">
-    @for (item of trust; track item.label) {
-      <mat-card class="trust-item" appearance="outlined" appReveal>
-        <div class="trust-top">
-          <span class="trust-num">{{ item.value }}</span>
-          @if (item.stars) {
-            <span class="stars-inline" aria-label="5 de 5 estrellas">
-              @for (star of stars; track star) {
-                <mat-icon>star</mat-icon>
-              }
-            </span>
-          } @else {
-            <span class="trust-unit">{{ item.unit }}</span>
-          }
-        </div>
-        <p class="trust-label">{{ item.label }}</p>
-      </mat-card>
-    }
-  </div>
-</section>
-
+@if (ui.sectionVisible('escuela')) {
 <section class="manifesto" id="escuela">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -161,20 +143,32 @@
       </div>
     </div>
   </div>
-</section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    @for (copy of copies; track copy) {
-      <div class="marquee-group">
-        @for (item of marquee; track item) {
-          <span class="marquee-item">{{ item }} <span class="diamond"></span></span>
-        }
-      </div>
-    }
+  <div class="trust" aria-label="Indicadores de respaldo">
+    <div class="container trust-grid">
+      @for (item of trust; track item.label) {
+        <mat-card class="trust-item" appearance="outlined" appReveal>
+          <div class="trust-top">
+            <span class="trust-num">{{ item.value }}</span>
+            @if (item.stars) {
+              <span class="stars-inline" aria-label="5 de 5 estrellas">
+                @for (star of stars; track star) {
+                  <mat-icon>star</mat-icon>
+                }
+              </span>
+            } @else {
+              <span class="trust-unit">{{ item.unit }}</span>
+            }
+          </div>
+          <p class="trust-label">{{ item.label }}</p>
+        </mat-card>
+      }
+    </div>
   </div>
-</div>
+</section>
+}
 
+@if (ui.sectionVisible('modalidades')) {
 <section class="spec is-dark" id="modalidades">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -246,7 +240,9 @@
     </div>
   </div>
 </section>
+}
 
+@if (ui.sectionVisible('galeria')) {
 <section class="gallery" id="galeria">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -301,21 +297,9 @@
     <p class="gal-note">* Fotografías de referencia ilustrativas de la actividad náutica.</p>
   </div>
 </section>
+}
 
-<section class="band" aria-label="Cita destacada">
-  <div class="band-bg" aria-hidden="true">
-    <img src="img/mar.jpg" alt="" />
-  </div>
-  <div class="container band-inner" appReveal>
-    <span class="diamond" aria-hidden="true"></span>
-    <p class="band-quote serif-display">
-      «El mejor día en el agua empieza antes de mojarse: eligiendo juntos la marea, el viento y la
-      tabla exacta para vos.»
-    </p>
-    <span class="band-foot">SUP Sup-Surf &amp; Surf School · La Barra, Punta del Este</span>
-  </div>
-</section>
-
+@if (ui.sectionVisible('proceso')) {
 <section class="process" id="proceso">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -341,6 +325,33 @@
   </div>
 </section>
 
+<section class="cta is-dark" id="reserva" data-fab-hide>
+  <div class="container">
+    <div class="cta-box" appReveal>
+      <span class="eyebrow">Reserva Directa · La Barra</span>
+      <h2 class="cta-title serif-display">
+        Coordinemos tu próxima salida en <em>SUP</em> o clase de surf.
+      </h2>
+      <div class="hero-actions">
+        <button mat-flat-button class="btn btn-gold" type="button" (click)="reserve('Travesía en SUP')">
+          <span>Armar mi consulta en 3 pasos</span>
+          <mat-icon>north_east</mat-icon>
+        </button>
+        <a mat-stroked-button class="btn btn-outline-light" [href]="directWa" target="_blank" rel="noopener noreferrer">
+          <span>WhatsApp directo · {{ phone }}</span>
+        </a>
+      </div>
+      <div class="cta-meta">
+        <span>SUP Sup-Surf &amp; Surf School</span>
+        <span>La Barra · Punta del Este · Maldonado</span>
+        <span>★ 5,0 en Google Maps (11 reseñas)</span>
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+@if (ui.sectionVisible('resenas')) {
 <section class="reviews is-dark" id="resenas">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -383,7 +394,9 @@
     </div>
   </div>
 </section>
+}
 
+@if (ui.sectionVisible('ubicacion')) {
 <section class="coverage" id="ubicacion">
   <div class="container">
     <header class="sec-head" appReveal>
@@ -430,12 +443,15 @@
     </div>
   </div>
 </section>
+}
 
+@if (ui.sectionVisible('faq')) {
 <section class="faq" id="faq">
   <div class="container">
     <div class="grid-12">
       <aside class="faq-aside" appReveal>
         <span class="eyebrow">Preguntas Frecuentes</span>
+        <span class="section-index">07 / 07 — Antes de entrar al agua</span>
         <h2 class="sec-title serif-display">Todo claro antes de <em>entrar al agua</em>.</h2>
         <p class="sec-lead">
           ¿Tenés otra consulta sobre horarios, niños o salidas en grupo? Escribinos directo por WhatsApp.
@@ -459,28 +475,4 @@
     </div>
   </div>
 </section>
-
-<section class="cta is-dark" id="reserva" data-fab-hide>
-  <div class="container">
-    <div class="cta-box" appReveal>
-      <span class="eyebrow">Reserva Directa · La Barra</span>
-      <h2 class="cta-title serif-display">
-        Coordinemos tu próxima salida en <em>SUP</em> o clase de surf.
-      </h2>
-      <div class="hero-actions">
-        <button mat-flat-button class="btn btn-gold" type="button" (click)="reserve('Travesía en SUP')">
-          <span>Armar mi consulta en 3 pasos</span>
-          <mat-icon>north_east</mat-icon>
-        </button>
-        <a mat-stroked-button class="btn btn-outline-light" [href]="directWa" target="_blank" rel="noopener noreferrer">
-          <span>WhatsApp directo · {{ phone }}</span>
-        </a>
-      </div>
-      <div class="cta-meta">
-        <span>SUP Sup-Surf &amp; Surf School</span>
-        <span>La Barra · Punta del Este · Maldonado</span>
-        <span>★ 5,0 en Google Maps (11 reseñas)</span>
-      </div>
-    </div>
-  </div>
-</section>
+}
