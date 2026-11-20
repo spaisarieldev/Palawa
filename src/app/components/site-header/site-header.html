@@ -1,42 +1,21 @@
 <mat-toolbar class="site-header" [class.is-scrolled]="ui.scrolled()">
   <div class="container header-inner">
-    <a href="#top" class="brand" aria-label="Palawa Surf &amp; Co — Inicio" (click)="ui.showSection('top', $event)">
+    <a href="#top" class="brand" aria-label="Palawa Surf &amp; SUP — Inicio" (click)="ui.showSection('top', $event)">
       <img
         class="brand-logo"
         src="img/logo-palawa.png"
-        alt="Palawa Surf &amp; Co · Surf &amp; SUP"
+        alt="Palawa Surf &amp; SUP"
         width="180"
         height="118"
       />
     </a>
 
-    <nav class="nav-desktop" aria-label="Principal">
-      @for (item of nav; track item.id) {
-        <a
-          class="nav-link"
-          [class.is-active]="ui.activeSection() === item.id"
-          [href]="'#' + item.id"
-          (click)="ui.showSection(item.id, $event)"
-        >
-          {{ item.label }}
-        </a>
-      }
-    </nav>
+    <p class="header-title">Palawa Surf &amp; SUP</p>
 
     <div class="header-actions">
-      <button mat-stroked-button class="header-cta" type="button" (click)="reserve()">
-        <span>Reservar salida</span>
-        <span class="diamond" aria-hidden="true"></span>
-      </button>
-      <button
-        mat-icon-button
-        type="button"
-        class="burger"
-        [attr.aria-expanded]="ui.menuOpen()"
-        [attr.aria-label]="ui.menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
-        (click)="ui.toggleMenu()"
-      >
-        <mat-icon>{{ ui.menuOpen() ? 'close' : 'menu' }}</mat-icon>
+      <span class="header-proof">★ 5,0 · 11 reseñas · La Barra</span>
+      <button mat-flat-button class="header-cta" type="button" (click)="ui.showSection('profe', $event)">
+        <span>La profe</span>
       </button>
     </div>
   </div>

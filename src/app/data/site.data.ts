@@ -18,15 +18,7 @@ export interface NavItem {
   num: string;
 }
 
-export const NAV: NavItem[] = [
-  { id: 'modalidades', label: 'Modalidades', long: 'Modalidades', num: '01' },
-  { id: 'escuela', label: 'La Escuela', long: 'La Escuela', num: '02' },
-  { id: 'galeria', label: 'Galería', long: 'Galería & Entorno', num: '03' },
-  { id: 'proceso', label: 'Proceso', long: 'Cómo salimos al agua', num: '04' },
-  { id: 'resenas', label: 'Reseñas', long: 'Reseñas 5,0 ★', num: '05' },
-  { id: 'ubicacion', label: 'Ubicación', long: 'Ubicación en La Barra', num: '06' },
-  { id: 'faq', label: 'FAQ', long: 'Preguntas frecuentes', num: '07' },
-];
+export const NAV: NavItem[] = [];
 
 export const MARQUEE = [
   'La Barra · Punta del Este · Maldonado',
@@ -325,12 +317,4 @@ export const LEVEL_OPTIONS: Choice[] = [
   { value: 'Grupo o familia (3+ personas)', label: 'Grupo o familia (3+)' },
 ];
 
-export const FOOTER_LINKS = [
-  { href: '#modalidades', label: 'Modalidades y clases' },
-  { href: '#escuela', label: 'La Escuela' },
-  { href: '#galeria', label: 'Galería y escenarios' },
-  { href: '#proceso', label: 'Cómo reservamos' },
-  { href: '#resenas', label: 'Reseñas en Google Maps' },
-  { href: '#ubicacion', label: 'Ubicación en La Barra' },
-  { href: '#faq', label: 'Preguntas frecuentes' },
-];
+export const FOOTER_LINKS: { href: string; label: string }[] = [];

@@ -1,10 +1,4 @@
 <div class="booking">
-  <div class="booking-top">
-    <button mat-icon-button type="button" aria-label="Cerrar ventana" (click)="close()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
-
   @if (!sent()) {
     <div class="modal-progress" aria-hidden="true">
       @for (marker of [1, 2, 3]; track marker) {
@@ -23,8 +17,8 @@
         >
           @for (option of services; track option.value) {
             <mat-button-toggle [value]="option.value">
+              <img class="booking-buoy" src="img/buoy.jpg" alt="" width="28" height="28" />
               <span>{{ option.label }}</span>
-              <span class="diamond" aria-hidden="true"></span>
             </mat-button-toggle>
           }
         </mat-button-toggle-group>

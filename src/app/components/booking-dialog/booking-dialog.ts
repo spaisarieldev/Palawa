@@ -3,7 +3,7 @@ import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/cor
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -36,7 +36,6 @@ export interface BookingPreset {
   templateUrl: './booking-dialog.html',
 })
 export class BookingDialog {
-  private readonly dialogRef = inject(MatDialogRef<BookingDialog>);
   private readonly data = inject<BookingPreset>(MAT_DIALOG_DATA);
 
   protected readonly phone = PHONE_DISPLAY;
@@ -103,10 +102,6 @@ export class BookingDialog {
   protected restart(): void {
     this.step.set(0);
     this.sent.set(false);
-  }
-
-  protected close(): void {
-    this.dialogRef.close();
   }
 
   private buildServices(): Choice[] {
