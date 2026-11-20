@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T11:31:09.000Z",
+  "title": "Design System: Palawa Surf & SUP",
+  "extensions": {
+    "colorMeta": {
+      "accent-buoy": {
+        "role": "primary",
+        "displayName": "Buoy Gold",
+        "canonical": "#F4C95F",
+        "tonalRamp": ["#3D2E0A", "#6B5014", "#9A7520", "#C9A033", "#F4C95F", "#F7D888", "#FAE6B0", "#FCF3D9"]
+      },
+      "field-sky": {
+        "role": "neutral",
+        "displayName": "Field Sky",
+        "canonical": "#9FD0E0",
+        "tonalRamp": ["#0B3A4A", "#1A5A6C", "#2E7A8E", "#4A9AAD", "#6FB8C8", "#9FD0E0", "#C5E4ED", "#E8F4F8"]
+      },
+      "field-deep": {
+        "role": "neutral",
+        "displayName": "Field Deep",
+        "canonical": "#0B3A4A",
+        "tonalRamp": ["#041820", "#0B3A4A", "#145060", "#1F6A7C", "#2E8698", "#4AA0B0", "#7ABCC8", "#C5E4ED"]
+      },
+      "foam": {
+        "role": "neutral",
+        "displayName": "Foam",
+        "canonical": "#E8F4F8",
+        "tonalRamp": ["#0B3A4A", "#2E6A7A", "#5A9AAB", "#8BBCC8", "#B5D8E2", "#D0E8EF", "#E8F4F8", "#F7FBFC"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#0B3A4A", "#4D6B75", "#7A949C", "#A8B8BE", "#C8D4D8", "#E0E8EB", "#F0F4F6", "#FFFFFF"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0B3A4A",
+        "tonalRamp": ["#041820", "#0B3A4A", "#145060", "#1F6A7C", "#2E8698", "#4AA0B0", "#7ABCC8", "#C5E4ED"]
+      },
+      "on-water": {
+        "role": "neutral",
+        "displayName": "On Water",
+        "canonical": "#E8F4F8",
+        "tonalRamp": ["#0B3A4A", "#2E6A7A", "#5A9AAB", "#8BBCC8", "#B5D8E2", "#D0E8EF", "#E8F4F8", "#F7FBFC"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#4D6B75",
+        "tonalRamp": ["#1A2E34", "#2E4650", "#4D6B75", "#6A8790", "#8AA3AB", "#A9BDC3", "#C9D6DA", "#E8EEF0"]
+      },
+      "subtle": {
+        "role": "neutral",
+        "displayName": "Subtle",
+        "canonical": "#7A949C",
+        "tonalRamp": ["#2A3A40", "#455860", "#5E737A", "#7A949C", "#96ADB4", "#B2C5CA", "#CED9DC", "#E8EEF0"]
+      },
+      "footer-abyss": {
+        "role": "neutral",
+        "displayName": "Footer Abyss",
+        "canonical": "#082E3B",
+        "tonalRamp": ["#031018", "#082E3B", "#0B3A4A", "#145060", "#1F6A7C", "#3A8898", "#6AADBA", "#B5D8E2"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "rgba(11, 58, 74, 0.16)",
+        "tonalRamp": ["rgba(11,58,74,0.4)", "rgba(11,58,74,0.28)", "rgba(11,58,74,0.16)", "rgba(11,58,74,0.1)", "rgba(11,58,74,0.06)", "rgba(11,58,74,0.04)", "rgba(11,58,74,0.02)", "rgba(11,58,74,0.01)"]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Line Strong",
+        "canonical": "rgba(11, 58, 74, 0.28)",
+        "tonalRamp": ["rgba(11,58,74,0.5)", "rgba(11,58,74,0.4)", "rgba(11,58,74,0.28)", "rgba(11,58,74,0.18)", "rgba(11,58,74,0.12)", "rgba(11,58,74,0.08)", "rgba(11,58,74,0.04)", "rgba(11,58,74,0.02)"]
+      },
+      "line-on-water": {
+        "role": "neutral",
+        "displayName": "Line on Water",
+        "canonical": "rgba(232, 244, 248, 0.35)",
+        "tonalRamp": ["rgba(232,244,248,0.7)", "rgba(232,244,248,0.55)", "rgba(232,244,248,0.35)", "rgba(232,244,248,0.25)", "rgba(232,244,248,0.18)", "rgba(232,244,248,0.12)", "rgba(232,244,248,0.08)", "rgba(232,244,248,0.04)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Channel headline only — uppercase condensed signal, ~10ch max."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Modality labels on channel rows."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Gold CTAs and footer brand wordmark."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Supporting sentence, footer, dialog copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Proof strip, channel foot, summary keys."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Header height and channel-row translate easing."
+      },
+      {
+        "name": "buoy-bob",
+        "value": "buoy-bob 2.8s ease-in-out infinite; 0 → translateY(-4px) → 0",
+        "purpose": "Idle motion on buoy marker glyphs; staggered via animation-delay."
+      },
+      {
+        "name": "row-nudge",
+        "value": "transform: translateX(4px); 0.25s var(--ease-out)",
+        "purpose": "Channel-row hover/focus lateral nudge."
+      },
+      {
+        "name": "header-compact",
+        "value": "height 76px→64px, background opacity rise; 0.3s ease-out",
+        "purpose": "Fixed header compacting on scroll."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce → animation/transition none on channel-row and channel-buoy",
+        "purpose": "Accessibility: disable bob and row motion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "booking-stack", "value": "719px" },
+      { "name": "channel-split", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Gold CTA",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Primary channel action — Armar consulta.",
+      "html": "<button class=\"ds-btn-gold\" type=\"button\">Armar consulta</button>",
+      "css": ".ds-btn-gold { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0.85rem 1.25rem; border: 0; border-radius: 0; background: #F4C95F; color: #0B3A4A; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: filter 0.2s ease; } .ds-btn-gold:hover { filter: brightness(1.05); } .ds-btn-gold:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Deep Button",
+      "kind": "button",
+      "refersTo": "button-deep",
+      "description": "Solid secondary action on foam booking surfaces.",
+      "html": "<button class=\"ds-btn-deep\" type=\"button\">Continuar</button>",
+      "css": ".ds-btn-deep { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.25rem; border: 0; border-radius: 0; background: #0B3A4A; color: #E8F4F8; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background-color 0.2s ease; } .ds-btn-deep:hover { background: #082E3B; } .ds-btn-deep:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary stroke action on light booking surfaces.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\">Volver</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.85rem 0.9rem; border: 1px solid rgba(11, 58, 74, 0.28); border-radius: 0; background: transparent; color: #0B3A4A; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 500; cursor: pointer; transition: border-color 0.2s ease, background-color 0.2s ease; } .ds-btn-outline:hover { border-color: #0B3A4A; background: rgba(11, 58, 74, 0.04); } .ds-btn-outline:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Header CTA",
+      "kind": "button",
+      "refersTo": "header-cta",
+      "description": "Compact gold CTA in the fixed frosted header.",
+      "html": "<button class=\"ds-header-cta\" type=\"button\">Armar consulta</button>",
+      "css": ".ds-header-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0.55rem 1rem; border: 0; border-radius: 0; background: #F4C95F; color: #0B3A4A; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: filter 0.2s ease; } .ds-header-cta:hover { filter: brightness(1.05); } .ds-header-cta:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Channel Row",
+      "kind": "custom",
+      "refersTo": "channel-row",
+      "description": "Signature buoy marker row — modality choice on the water field.",
+      "html": "<button class=\"ds-channel-row\" type=\"button\"><span class=\"ds-channel-buoy\" aria-hidden=\"true\"></span><span class=\"ds-channel-row-text\"><strong>SUP</strong></span><span class=\"ds-channel-row-num\" aria-hidden=\"true\">01</span></button>",
+      "css": ".ds-channel-row { width: 100%; display: grid; grid-template-columns: 2rem 1fr auto; gap: 0.9rem; align-items: center; text-align: left; padding: 0.95rem 1rem; border: 1px solid rgba(232, 244, 248, 0.35); background: rgba(11, 58, 74, 0.38); color: #E8F4F8; cursor: pointer; font-family: 'IBM Plex Sans', system-ui, sans-serif; transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-channel-row:hover, .ds-channel-row:focus-visible { background: rgba(11, 58, 74, 0.58); border-color: #F4C95F; transform: translateX(4px); outline: none; } .ds-channel-buoy { width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #F4C95F; justify-self: center; animation: ds-buoy-bob 2.8s ease-in-out infinite; } .ds-channel-row-text strong { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; } .ds-channel-row-num { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 1rem; opacity: 0.55; } @keyframes ds-buoy-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } } @media (prefers-reduced-motion: reduce) { .ds-channel-row, .ds-channel-buoy { animation: none; transition: none; } }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "header-cta",
+      "description": "Fixed frosted deep bar with logo, proof, and gold CTA.",
+      "html": "<header class=\"ds-site-header\"><div class=\"ds-header-inner\"><span class=\"ds-brand\">PALAWA</span><div class=\"ds-header-actions\"><span class=\"ds-header-proof\">★ 5,0 · 11 reseñas · La Barra</span><button class=\"ds-header-cta\" type=\"button\">Armar consulta</button></div></div></header>",
+      "css": ".ds-site-header { display: flex; align-items: center; height: 76px; padding: 0 1.25rem; background: rgba(11, 58, 74, 0.72); color: #E8F4F8; border-bottom: 1px solid rgba(232, 244, 248, 0.35); backdrop-filter: blur(12px); font-family: 'IBM Plex Sans', system-ui, sans-serif; } .ds-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; max-width: 1120px; margin-inline: auto; } .ds-brand { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; } .ds-header-actions { display: flex; align-items: center; gap: 1rem; } .ds-header-proof { font-size: 0.78rem; letter-spacing: 0.04em; opacity: 0.88; white-space: nowrap; } .ds-header-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0.55rem 1rem; border: 0; border-radius: 0; background: #F4C95F; color: #0B3A4A; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; } .ds-header-cta:hover { filter: brightness(1.05); } .ds-header-cta:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; }"
+    },
+    {
+      "name": "Booking Toggle",
+      "kind": "chip",
+      "refersTo": "booking-toggle",
+      "description": "Square option toggle for booking modality/level choices.",
+      "html": "<button class=\"ds-booking-toggle\" type=\"button\" data-checked=\"false\">Travesía en SUP</button>",
+      "css": ".ds-booking-toggle { width: 100%; padding: 0.85rem 0.9rem; border: 1px solid rgba(11, 58, 74, 0.28); border-radius: 0; background: transparent; color: #0B3A4A; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 500; line-height: 1.35; text-align: left; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; } .ds-booking-toggle:hover { border-color: #0B3A4A; } .ds-booking-toggle:focus-visible { outline: 2px solid #F4C95F; outline-offset: 3px; } .ds-booking-toggle[data-checked=\"true\"], .ds-booking-toggle.is-checked { background: #0B3A4A; color: #E8F4F8; border-color: #0B3A4A; }"
+    },
+    {
+      "name": "Booking Field",
+      "kind": "input",
+      "refersTo": "button-outline",
+      "description": "Light-surface text field pattern for the consultation dialog.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Fecha preferida</span><input class=\"ds-field-input\" type=\"text\" placeholder=\"Ej. sábado mañana\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 0.35rem; width: 100%; font-family: 'IBM Plex Sans', system-ui, sans-serif; } .ds-field-label { color: #4D6B75; font-size: 0.9rem; } .ds-field-input { width: 100%; min-height: 48px; padding: 0.7rem 0.85rem; border: 1px solid rgba(11, 58, 74, 0.28); border-radius: 0; background: #FFFFFF; color: #0B3A4A; font-family: inherit; font-size: 1rem; } .ds-field-input:hover { border-color: #0B3A4A; } .ds-field-input:focus { outline: 2px solid #F4C95F; outline-offset: 2px; border-color: #0B3A4A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Channel Markers",
+    "overview": "The interface is an empty navigation channel toward WhatsApp: a full-bleed water field, one condensed headline, one short line of support, one gold CTA, and three buoy rows that mark modalities. Depth comes from the sky-to-abyss gradient and translucent ink panels, not from cards, shadows, or marketing sections.\n\nPersonality is coastal and operational — clear, 1-to-1, Uruguay Spanish — never decorative school brochure. Density is sparse: every element earns its place by helping the visitor assemble a consultation. Confirmed visual rejections: inset hero cards, eyebrows/kickers, pill clusters, multi-section marketing scroll, and soft Material corner radii.",
+    "keyCharacteristics": [
+      "Full-viewport water gradient as the primary atmosphere (#9FD0E0 → #0B3A4A)",
+      "Buoy gold (#F4C95F) reserved for CTAs, focus, and row hover borders",
+      "Square geometry everywhere (0px radius); circular only for the buoy marker glyph",
+      "Barlow Condensed uppercase for brand signals; IBM Plex Sans for body and proof",
+      "Modality list as flat marker rows, not cards"
+    ],
+    "rules": [
+      {
+        "name": "The Buoy Accent Rule",
+        "body": "Gold appears only as action or focus signal — CTAs, :focus-visible, progress is-on, and row hover borders. Do not wash large surfaces in gold.",
+        "section": "colors"
+      },
+      {
+        "name": "The Water Field Rule",
+        "body": "The first composition is the gradient field itself. Do not replace it with a flat single-color page or an inset media card.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Signal Rule",
+        "body": "Uppercase Barlow Condensed is for brand verbs and modality markers. Body copy stays sentence-case IBM Plex Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Headline Rule",
+        "body": "The first viewport carries one display line. Do not stack competing display blocks or decorative eyebrows above it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Empty Channel Rule",
+        "body": "The landing job is assemble → WhatsApp. Do not add gallery, FAQ, process, marquee, or long-form school sections to the primary channel.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Flat Marker Rule",
+        "body": "Surfaces stay flat. Hover deepens the ink wash and shifts the row — it does not lift with shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Zero Radius Rule",
+        "body": "UI chrome is square. Do not reintroduce Material soft corners or pill CTAs.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the first viewport as one channel: brand, one headline, one sub, one gold CTA, three buoy rows.",
+      "Do use buoy gold only for action and focus signals.",
+      "Do set all chrome radii to 0px; keep the buoy glyph circular.",
+      "Do set modality choices as flat marker rows with hairline borders on the water field.",
+      "Do honor prefers-reduced-motion by removing bob and row transitions."
+    ],
+    "donts": [
+      "Don't introduce eyebrows, kickers, or pill clusters above the headline.",
+      "Don't place inset hero media cards, rounded media tiles, or floating image blocks on the channel.",
+      "Don't use drop shadows to fake elevation.",
+      "Don't expand the landing into multi-section brochure content (gallery, FAQ, process, marquee).",
+      "Don't soften Material corners or restyle CTAs as rounded pills."
+    ]
+  }
+}
