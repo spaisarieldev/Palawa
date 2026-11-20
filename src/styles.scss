@@ -374,8 +374,8 @@ a {
   color: #fff !important;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: 0.04em;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   box-shadow: 0 8px 18px rgba(11, 58, 74, 0.28);
 }
@@ -385,11 +385,6 @@ a {
   align-items: center;
   gap: 0.55rem;
   color: #fff;
-}
-
-.channel-cta .mdc-button__label span {
-  font-weight: 700;
-  -webkit-text-stroke: 0.25px #fff;
 }
 
 .channel-wa {
